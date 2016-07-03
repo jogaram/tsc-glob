@@ -9,7 +9,15 @@
     "test:watch": "_mocha --watch",
     "prepublish": "istanbul check-coverage"
   },
-  "keywords": ["tsc", "glob", "typescript"],
+  "keywords": [
+    "tsc",
+    "glob",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jogaram/tsc-glob"
+  },
   "author": "Jorge García Ramos <draco1989200@gmail.com>",
   "license": "ISC",
   "devDependencies": {
