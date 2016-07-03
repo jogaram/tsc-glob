@@ -13,6 +13,7 @@ tsc-glob [options]
 ```
 
 **Options**
+
 |alias|command                 |description                                         |
 |-----|------------------------|----------------------------------------------------|
 |-h   |--help                  |output usage information                            |
