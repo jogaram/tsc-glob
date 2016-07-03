@@ -1,0 +1,5 @@
+check:
+    global:
+        statements: 100
+    each:
+        statements: 100
