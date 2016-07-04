@@ -49,13 +49,13 @@ var Helper = {};
  * @returns {string}
  */
 Helper.findTSCExecutable = function () {
-    var command = '';
+    var command = 'node_modules/.bin/tsc';
 
-    glob.sync('**/@(.bin|bin)/tsc', {dot: true}).forEach(function (path) {
-        if ((path.match(/\/bin\/tsc/) && !command) || path.match(/\/\.bin\/tsc/)) {
-            command = path;
-        }
-    });
+    //glob.sync('**/@(.bin|bin)/tsc', {dot: true}).forEach(function (path) {
+    //    if ((path.match(/\/bin\/tsc/) && !command) || path.match(/\/\.bin\/tsc/)) {
+    //        command = path;
+    //    }
+    //});
 
     if (!command) {
         error('Missing Typescript compiler executable [tsc].');
