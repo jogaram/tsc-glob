@@ -51,7 +51,7 @@ var Helper = {};
 Helper.findTSCExecutable = function () {
     var command = '';
 
-    glob.sync('**/@(.bin|bin)/tsc', {dot: true}).forEach(function (path) {
+    glob.sync('**/@(.bin|bin)/tsc.cmd', {dot: true}).forEach(function (path) {
         if ((path.match(/\/bin\/tsc/) && !command) || path.match(/\/\.bin\/tsc/)) {
             command = path;
         }
