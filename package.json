@@ -2,7 +2,14 @@
   "name": "tsc-glob",
   "version": "1.0.0",
   "description": "Typescript compiler wrapper to support 'filesGlob' tsconfig.json file option",
-  "main": "index.js",
+  "main": "bin/tsc-glob.js",
+  "files": [
+    "bin",
+    "README.md"
+  ],
+  "bin": {
+    "tsc-glob": "./bin/tsc-glob.js"
+  },
   "scripts": {
     "test": "_mocha",
     "test:coverage": "istanbul cover _mocha",

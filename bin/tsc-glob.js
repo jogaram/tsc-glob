@@ -1,13 +1,12 @@
-#!/usr/bin/env node
+#! /usr/bin/env node
 
-const spawn = require('child_process').spawn,
+var spawn = require('child_process').spawn,
     glob = require("glob"),
-    helper = require('./command-helper');
+    helper = require('./command-helper'),
+    options = helper.getOptions(),
+    commandArgs = options.unknown.concat(helper.resolveTSFiles()),
+    proc = spawn(helper.findTSCExecutable(), commandArgs, { stdio: 'inherit' });
 
-var options = helper.getOptions(),
-    commandArgs = options.unknown.concat(helper.resolveTSFiles());
-
-var proc = spawn(helper.findTSCExecutable(), commandArgs, { stdio: 'inherit' });
 proc.on('exit', function (code, signal) {
     process.on('exit', function(){
         if (signal) {
