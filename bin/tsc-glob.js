@@ -7,7 +7,7 @@ const spawn = require('child_process').spawn,
 var options = helper.getOptions(),
     commandArgs = options.unknown.concat(helper.resolveTSFiles());
 
-var proc = spawn(helper.findTSCExecutable(), commandArgs, { stdio: 'inherit' });
+var proc = spawn('node', ['node_modules/typescript/lib/tsc.js'].concat(commandArgs), { stdio: 'inherit' });
 proc.on('exit', function (code, signal) {
     process.on('exit', function(){
         if (signal) {
