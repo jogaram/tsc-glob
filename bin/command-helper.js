@@ -41,6 +41,20 @@ function resolveGlobs() {
     }
 }
 
+/**
+ * Check if a file exists
+ * @param cmdPath
+ * @returns {boolean}
+ */
+function fileExists(cmdPath) {
+    try {
+        fs.accessSync(cmdPath, fs.F_OK);
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
 var Helper = {};
 
 /**
@@ -51,13 +65,11 @@ var Helper = {};
 Helper.findTSCExecutable = function () {
     var command = '';
 
-    glob.sync('**/@(.bin|bin)/tsc', {dot: true}).forEach(function (path) {
-        if ((path.match(/\/bin\/tsc/) && !command) || path.match(/\/\.bin\/tsc/)) {
-            command = path;
-        }
-    });
-
-    if (!command) {
+    if (fileExists('node_modules/.bin/tsc')) {
+        command = 'node_modules/.bin/tsc';
+    } else if (fileExists('node_modules/typescript/bin/tsc')) {
+        command = 'node_modules/typescript/bin/tsc';
+    } else {
         error('Missing Typescript compiler executable [tsc].');
     }
 
