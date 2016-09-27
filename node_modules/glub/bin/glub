@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+
+var glub = require('..');
+var argv = require('minimist')(process.argv.slice(2));
+
+glub(argv._, argv, function(err, files) {
+  if (err) {
+    return console.error(err);
+  }
+  files.forEach(function(file) {
+    console.log(file);
+  });
+});

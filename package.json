@@ -14,8 +14,7 @@
     "test": "_mocha",
     "test:watch": "_mocha --watch",
     "coverage": "istanbul cover _mocha",
-    "build": "crlf --set=LF bin/*.js",
-    "prepublish": "istanbul check-coverage"
+    "build": "crlf --set=LF bin/*.js"
   },
   "keywords": [
     "tsc",
@@ -33,10 +32,11 @@
     "crlf": "^1.1.0",
     "istanbul": "^0.4.4",
     "mocha": "^2.5.3",
-    "mock-require": "^1.3.0"
+    "mock-require": "^1.3.0",
+    "typescript": "^2.x"
   },
   "peerDependencies": {
-    "typescript": "^1.8.10"
+    "typescript": "^2.x"
   },
   "dependencies": {
     "chalk": "^1.1.3",
